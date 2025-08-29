@@ -23,6 +23,10 @@ int main() {
         cout<<"enter the position you eant to update"<<endl;
         int index;
         cin>> index;
+           if(index<0||index>size+1){
+            cout<<"boundry error!"<<endl;
+            return 0;
+        }
         cout<<"enter the value"<<endl;
         int value;
         cin>>value;
@@ -37,4 +41,5 @@ while(choice=='y');
 
 
     return 0;
+
 }
