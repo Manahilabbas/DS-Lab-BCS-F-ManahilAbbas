@@ -7,10 +7,10 @@
 using namespace std;
 class SafePointer{
     int* marks;
-    public:
-    SafePointer() {
-        marks = new int;  // allocate memory for one int
-        *marks = 0;       // initialize
+   public:
+    SafePointer(int m=0) {
+        marks = new int;  
+        *marks = m;       
     }
     SafePointer(SafePointer &p){
         marks=new int;
@@ -20,6 +20,13 @@ class SafePointer{
         delete marks;
         marks=nullptr;
      }
+
+    SafePointer& operator=(const SafePointer&other){
+        delete marks;              
+        marks = new int;  
+      *this ->marks=*(other.marks);
+      return *this;
+    }
 
      void setValue(const int a){*marks=a;}
      int getValue(){return *marks;}
@@ -43,4 +50,5 @@ class SafePointer{
         cout<<student[i].getValue()<<endl;
     }
     return 0;
+
  }
