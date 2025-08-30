@@ -59,6 +59,8 @@ int main()
             {
                 r = pos/cols;
                 c = (pos%cols)-1;
+                if(c=-1)
+                    c=cols;
                 chart[r][c] = 1;
             }
         }
@@ -79,4 +81,5 @@ int main()
     }
     delete[] chart;
 }
+
 
