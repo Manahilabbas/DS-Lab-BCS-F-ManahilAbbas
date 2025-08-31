@@ -39,7 +39,7 @@ int main()
         cout << "How many seats do you want to fill? ";
         int size;
         cin >> size;
-        if (size >= (rows*cols))
+        if (size > (rows*cols))
             {
                 cout << "Boundary error";
                 return 0;
@@ -50,7 +50,7 @@ int main()
             cout << i+1 << ". ";
             int pos, r, c;
             cin >> pos;
-            if (pos >= (rows*cols))
+            if (pos > (rows*cols))
             {
                 cout << "Boundary error";
                 return 0;
@@ -59,7 +59,7 @@ int main()
             {
                 r = pos/cols;
                 c = (pos%cols)-1;
-                if(c=-1)
+                if(c==-1)
                     c=cols;
                 chart[r][c] = 1;
             }
@@ -75,11 +75,12 @@ int main()
         cout << endl;
     }
 
-    for (int i=rows-1; i>0; i--)
+    for (int i=rows-1; i>=0; i--)
     {
         delete[] chart[i];
     }
     delete[] chart;
 }
+
 
 
