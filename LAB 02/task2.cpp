@@ -1,4 +1,3 @@
-
 // Write a program that uses a dynamic 2D array to represent a seating chart in a classroom.
 // => Rows represent benches, columns represent seats on each bench.
 // => Initialize the array with 0 (empty).
@@ -7,80 +6,62 @@
 
 #include <iostream>
 using namespace std;
-
 int main()
 {
-    int **chart;
-    int rows, cols;
+    int **chart,row, col;
     cout << "Enter no of rows: ";
-    cin >> rows;
+    cin >> row;
     cout << "Enter no of columns: ";
-    cin >> cols;
+    cin >> col;
 
-    chart = new int*[rows];
-    for (int i=0; i<rows; i++)
-    {
-        chart[i] = new int[cols];
-    }
+    chart = new int*[row];
+    for (int i=0; i<row; i++)
+        chart[i] = new int[col];
 
-    for (int i=0; i<rows; i++)
-    {
-        for (int j=0; j<cols; j++)
-        {
+    for (int i=0; i<row; i++) {
+        for (int j=0; j<col; j++)
             chart[i][j] = 0;
-        }
     }
 
-    cout << "Do you want to fill seats? ";
     char choice;
+    cout << "Do you want to fill seats? ";
     cin >> choice;
-    if (choice == 'y')
-    {
+    if (choice == 'y') {
         cout << "How many seats do you want to fill? ";
         int size;
         cin >> size;
-        if (size > (rows*cols))
-            {
+        if (size > (row*col)) {
                 cout << "Boundary error";
                 return 0;
             }
         cout << "Enter the positions: " << endl;
-        for (int i=0; i<size; i++)
-        {
+        for (int i=0;i<size ; i++) {
             cout << i+1 << ". ";
             int pos, r, c;
             cin >> pos;
-            if (pos > (rows*cols))
-            {
+            if (pos>(row*col)) {
                 cout << "Boundary error";
                 return 0;
             }
-            else
-            {
-                r = pos/cols;
-                c = (pos%cols)-1;
-                if(c==-1)
-                    c=cols;
-                chart[r][c] = 1;
+            else {
+               pos--;             
+               r = pos / col;  
+               c = pos % col;     
+
             }
         }
     }
 
-    for (int i=0; i<rows; i++)
-    {
-        for (int j=0; j<cols; j++)
-        {
+    for (int i=0; i<row; i++){
+        for (int j=0; j<col; j++) {
             cout << chart[i][j] << " ";
         }
         cout << endl;
     }
 
-    for (int i=rows-1; i>=0; i--)
+    for (int i=row-1; i>=0; i--)
     {
         delete[] chart[i];
     }
     delete[] chart;
 }
-
-
-
