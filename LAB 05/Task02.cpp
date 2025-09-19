@@ -16,7 +16,7 @@ void printNumbers(int n){
 void functionB(int n);
 void functionA(int n){
     if(n<=0){return;}
-    cout<<n;
+    cout<<n<<" ";
     functionB(n-1);
 }
 void functionB(int n){
@@ -28,7 +28,9 @@ int main(){
     cout<<"enter number: "<<endl;
     int n;
     cin>>n;
-    // printNumbers(n);
+    cout<<"direct:"<<endl;
+     printNumbers(n);
+    cout<<"indirect:"<<endl;
     functionA(n);
     return 0;
 }
