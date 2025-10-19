@@ -17,6 +17,11 @@ public:
         top = -1;
         arr = new int[capacity];
     }
+     ~stack() 
+    {
+        delete[] arr;
+        arr = nullptr;
+    }
     void push(int n)
     {
         if (top == capacity - 1)
