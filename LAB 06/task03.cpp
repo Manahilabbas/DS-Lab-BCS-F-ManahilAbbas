@@ -17,6 +17,11 @@ public:
         size = 0;
         arr = new int[capacity];
     }
+     ~queue() 
+    {
+        delete[] arr;
+        arr = nullptr;
+    }
     void enqueue(int n)
     {
         if (isfull())
